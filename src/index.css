@@ -130,8 +130,28 @@ table {
 
 * {
   box-sizing: border-box;
-  /* background-color: #eef7ff; */
   font-family: "seoulhangang";
-  color: #000;
 	font-size:10px; 
+}
+
+body{
+  background-color: #f2f2f2;
+}
+
+h1{
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 30px;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 1.5rem;
+}
+
+h4{
+  font-size: 1.2rem;
 }

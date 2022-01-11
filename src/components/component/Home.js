@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import selfie from "@/src/img/vue.png"
+import selfie from "@/img/react.png";
 
 const Container = styled.div`
   height: 100%;
@@ -8,40 +8,36 @@ const Container = styled.div`
   width: 100%;
   padding: 20px;
   background-color: #303030;
-  img{
-    border-radius: 50%;
-  }
 `;
 
-const TextBox = styled.div`
+const Content = styled.div`
+  background-color: #303030;
   color: #fff;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  text-align: center;
+  img {
+    border-radius: 50%;
+    margin: 20px 0;
+    height: 30vh;
+  }
 `;
-
-// const Content = styled.div`
-//   border-radius: 100%;
-//   border: 1px solid red;
-//   img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// `;
 
 export default function Home() {
   return (
     <Container className="home">
-      <TextBox className="textBox">
+      <Content className="textBox">
         <h1>ZEROCHAE'S PORTFOLIO</h1>
-        {/* <img src=} alt="img"/> */}
+        <img src={selfie} alt="img" />
         <h4>
-          안녕하세요 DEVELOPER 권영채 입니다. 제 포트폴리오 페이지에
-          방문해주셔서 감사합니다.
+          안녕하세요 FRONT-END DEVELOPER 권영채 입니다. <br />제 포트폴리오
+          페이지에 방문해주셔서 감사합니다.
         </h4>
-      </TextBox>
+      </Content>
     </Container>
   );
 }

@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   height: 70px;
   position: sticky;
+  background-color: #fff;
   top: 0;
   width: 100%;
   display: flex;
@@ -30,14 +31,14 @@ const Menu = styled.ul`
 `;
 
 export default function Nav() {
-  const menu = ["Home", "About", "Skills", "Project"];
+  const menu = ["Home", "About", "Skills", "Project", "Contact"];
 
   return (
     <Container className="nav">
       <Title>zerochae</Title>
       <Menu>
         {menu.map((item) => {
-          return <li>{item}</li>;
+          return <li key={item}>{item}</li>;
         })}
       </Menu>
     </Container>
