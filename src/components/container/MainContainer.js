@@ -6,6 +6,8 @@ import styled from "styled-components"
 import { useEffect , useRef } from "react";
 
 const Container = styled.div`
+width: 100%;
+font-size: 44px;
 `;
 
 export default function MainContainer() {
@@ -19,9 +21,9 @@ export default function MainContainer() {
   return (
     <Container ref={container} className="mainContainer">
       <Home className="section" />
+      <About className="section" />
       <Skills className="section" />
       <Project className="section" />
-      <About className="section" />
     </Container>
   );
 }
