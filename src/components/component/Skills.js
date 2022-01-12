@@ -120,7 +120,7 @@ export default function Skills() {
   ];
 
   return (
-    <Container className="skills">
+    <Container id="Skills" className="skills">
       <h1>Skills</h1>
       <Content>
         <ListContainer>

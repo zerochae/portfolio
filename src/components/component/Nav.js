@@ -1,9 +1,16 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faCode,
+  faFile,
+  faAddressCard,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Container = styled.div`
   height: 70px;
   position: sticky;
-  background-color: #fff;
+  background-color: #f2f2f2;
   top: 0;
   width: 100%;
   display: flex;
@@ -18,9 +25,10 @@ const Title = styled.div`
   width: fit-content;
   display: flex;
   align-items: center;
+  font-size: 1.5rem;
 `;
 
-const Menu = styled.ul`
+const MenuContainer = styled.ul`
   height: 100%;
   display: flex;
   align-items: center;
@@ -30,17 +38,50 @@ const Menu = styled.ul`
   }
 `;
 
+const Menu = styled.li`
+  border-radius: 10px;
+  width: 120px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export default function Nav() {
-  const menu = ["Home", "About", "Skills", "Project", "Contact"];
+
+  const menuItems = [
+    {
+      icon: <FontAwesomeIcon icon={faHome} />,
+      name: "Home",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faAddressCard} />,
+      name: "About",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCode} />,
+      name: "Skills",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faFile} />,
+      name: "Project",
+    },
+  ];
 
   return (
     <Container className="nav">
-      <Title>zerochae</Title>
-      <Menu>
-        {menu.map((item) => {
-          return <li key={item}>{item}</li>;
+      <Title>ZEROCHAE</Title>
+      <MenuContainer>
+        {menuItems.map((item) => {
+          return (
+            <Menu key={item.name}>
+              <a href={`#${item.name}`}>
+                {item.icon}&nbsp;{item.name}
+              </a>
+            </Menu>
+          );
         })}
-      </Menu>
+      </MenuContainer>
     </Container>
   );
 }

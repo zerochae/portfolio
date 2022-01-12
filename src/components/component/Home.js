@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import selfie from "@/img/react.png";
+import selfie from "@/img/piano.jpg";
 
 const Container = styled.div`
   height: 100%;
@@ -29,7 +29,7 @@ const Content = styled.div`
 
 export default function Home() {
   return (
-    <Container className="home">
+    <Container id="Home" className="home">
       <Content className="textBox">
         <h1>ZEROCHAE'S PORTFOLIO</h1>
         <img src={selfie} alt="img" />
