@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import kanboo from "@/img/kanboo.jpg";
-import mood from "@/img/mood.jpg";
+import kanboo from "@/img/kanboo.png";
+import mood from "@/img/mood.png";
+import portfolio from "@/img/portfolio.png";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,47 +14,132 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const Container = styled.div`
   text-align: center;
   padding: 70px 15px;
-
-  .prev {
-    position: absolute;
-    top: 50%;
-    left: 0;
-  }
-  .next {
-    position: absolute;
-    top: 50%;
-    right: 0;
-  }
+  height: 100vh;
+  overflow: hidden;
 
   .flip:hover {
     transform: rotateY(180deg);
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+    .content {
+      width: 70vw;
+    }
+    .cardContainer {
+      width: 210vw;
+      transform: ${({ step }) => {
+        return `translateX(${step * 70 * -1}vw)`;
+      }};
+    }
+    
+    .flip{
+      height: 80%;
+    }
+    
+    .card{
+      width: 70vw;
+    }
+
+  }
+
+  @media all and (max-width: 767px) {
+
+    .content {
+      width: 80vw;
+    }
+    .cardContainer {
+      width: 240vw;
+      transform: ${({ step }) => {
+        return `translateX(${step * 80 * -1}vw)`;
+      }};
+    }
+    
+    .flip{
+      height: 60%;
+    }
+    
+    .card{
+      width: 80vw;
+    }
+
+  }
+
+  /* @media (min-width: 768px) and (max-width: 1023px) {
+
+    .cardContainer {
+      width: 180vw;
+    }
+
+    .card{
+    }
+
+    .innerContainer {
+      width: 60vw;
+    }
+
+    .flip {
+      width:60vw;
+      height: 70%;
+    }
+
+    .cardContainer {
+      min-width: 100%;
+      transform: ${({ step }) => {
+        return `translateX(${step * 60 * -1}vw)`;
+      }};
+    }
+
+    .btn {
+      width: 80px;
+      height: 50px;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    padding: 0;
+
+    .card {
+      min-width: 100%;
+      transform: ${({ step }) => {
+        return `translateX(${step * 100 * -1}vw)`;
+      }};
+    }
+    .cardContainer {
+      width: 150vw;
+    }
+    .flip {
+      width: 100%;
+    }
+  } */
 `;
 
 const Content = styled.div`
-  width: 50vw;
+  height: 100%;
   margin: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  width: 50vw;
+  overflow: hidden;
+  margin-top: 30px;
 `;
 
 const CardContainer = styled.div`
-  width: 50vw;
-  height: 75vh;
-  overflow: hidden;
-  display: flex;
+  width: 150vw;
+  transform: ${({ step }) => {
+    return `translateX(${step * 50 * -1}vw)`;
+  }};
+  transition: all 1s;
 `;
 
 const Button = styled.button`
   border-radius: 15px;
   border: none;
   box-shadow: 6px 6px 12px #b6b6b6, -6px -6px 12px #ffffff;
-  width: 150px;
-  height: 60px;
+  width: 90px;
+  height: 50px;
   cursor: pointer;
   z-index: 1;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 
   :hover {
     box-shadow: inset 6px 6px 12px #b6b6b6, inset -6px -6px 12px #ffffff;
@@ -61,17 +147,19 @@ const Button = styled.button`
 `;
 
 const Card = styled.div`
-  transition: all 1s;
-  min-width: 50vw;
-  height: 90%;
-  padding: 20px;
+  float: left;
+  width: 50vw;
+  height: 70vh;
+  flex-direction: column;
+  img {
+    width: 100%;
+  }
 `;
 
 const InnerContainer = styled.div`
   display: flex;
-  width: 60%;
+  width: 80%;
   height: 100%;
-  padding: 20px;
   box-shadow: 6px 6px 12px #b6b6b6, -6px -6px 12px #ffffff;
   border-radius: 20px;
   margin: auto;
@@ -85,10 +173,14 @@ const FrontContainer = styled.div`
   position: absolute;
   width: 100%;
   padding: 20px;
+  height: 100%;
   left: 0;
   top: 0;
+  flex-direction: column;
+  justify-content: space-around;
+  
   img {
-    width: 100%;
+    height: 90%;
     border-radius: 20px;
   }
 `;
@@ -190,7 +282,7 @@ const project = [
     name: "portfolio",
     url: "https://zerochae.github.io/portfolio",
     git: "https://zerochae.github.io/portfolio",
-    img: "",
+    img: portfolio,
     skills: ["react"],
     description: "react를 이용한 portfolio Page입니다.",
     myWork: ["라이브러리 없이 모든 애니메이션들을 구현했습니다."],
@@ -202,45 +294,19 @@ export default function Project() {
   let [step, setStep] = useState(0);
 
   return (
-    <Container id="Project" className="project">
+    <Container id="Project" className="project" step={step}>
       <h1>Project</h1>
       <Content className="content">
-        {step !== 0 && (
-          <Button
-            onClick={() => {
-              setStep(step - 1);
-            }}
-            className="prev"
-          >
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </Button>
-        )}
-        {step !== project.length - 1 && (
-          <Button
-            onClick={() => {
-              setStep(step + 1);
-            }}
-            className="next"
-          >
-            <FontAwesomeIcon icon={faArrowRight} />
-          </Button>
-        )}
-        <CardContainer>
-          {project.map((item, p_index) => {
+        <CardContainer step={step} className="cardContainer">
+          {project.map((item) => {
             return (
-              <Card
-                style={{ transform: `translateX(${step * 50 * -1}vw)` }}
-                key={item.idx}
-              >
+              <Card step={step} key={item.idx} className="card">
                 <InnerContainer className="flip">
                   <FrontContainer>
-                    <img src={item.img} alt={item.name} 
-                    // style={{width: `${p_index === 0 ? 80 : 60}%`}}
-                    />
+                    <img src={item.img} alt={item.name} />
                     <h2>{item.name}</h2>
-                    <p>{item.description}</p>
                   </FrontContainer>
-                  <BackContainer className="back">
+                  <BackContainer>
                     <MyWorkContainer>
                       <p>#나의 기여도</p>
                       {item.myWork.map((myWork) => {
@@ -264,16 +330,36 @@ export default function Project() {
                   </BackContainer>
                 </InnerContainer>
                 <MenuContainer>
+                  {step !== 0 && (
+                    <Button
+                      className="btn"
+                      onClick={() => {
+                        setStep(step - 1);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faArrowLeft} />
+                    </Button>
+                  )}
                   <a href={item.git} target="_blank" rel="noopener noreferrer">
-                    <Button>
+                    <Button className="btn">
                       <FontAwesomeIcon icon={faGithub} /> Git
                     </Button>
                   </a>
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    <Button>
-                      <FontAwesomeIcon icon={faDesktop} /> WebSite
+                    <Button className="btn">
+                      <FontAwesomeIcon icon={faDesktop} /> Demo
                     </Button>
                   </a>
+                  {step !== project.length - 1 && (
+                    <Button
+                      className="btn"
+                      onClick={() => {
+                        setStep(step + 1);
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </Button>
+                  )}
                 </MenuContainer>
               </Card>
             );

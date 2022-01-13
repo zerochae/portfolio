@@ -4,10 +4,10 @@ import selfie from "@/img/piano.jpg";
 const Container = styled.div`
   height: 100%;
   margin: auto;
-  font-size: 1.4rem;
   width: 100%;
   padding: 20px;
   background-color: #303030;
+
 `;
 
 const Content = styled.div`

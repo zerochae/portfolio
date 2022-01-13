@@ -10,6 +10,32 @@ import OracleLogo from "@/img/Oracle.png";
 const Container = styled.div`
   text-align: center;
   padding: 70px 15px;
+
+  .logoContainer {
+    width: 130px;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    box-shadow: 9px 9px 18px #b6b6b6, -9px -9px 18px #ffffff;
+  }
+
+  @media all and (max-width: 767px) {
+    .listContainer {
+      flex-direction: column;
+    }
+
+    .list {
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .logoContainer {
+      width: 70px;
+      height: 70px;
+    }
+  }
 `;
 
 const Content = styled.div`
@@ -39,7 +65,7 @@ const List = styled.ul`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:20px;
+    padding: 20px;
   }
 
   img {
@@ -47,16 +73,6 @@ const List = styled.ul`
     height: 60%;
   }
 
-  .logoContainer {
-    width: 130px;
-    height: 130px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 50%;
-    box-shadow: 9px 9px 18px #b6b6b6, -9px -9px 18px #ffffff;
-    margin-left: 15px;
-  }
 `;
 
 export default function Skills() {
@@ -123,10 +139,10 @@ export default function Skills() {
     <Container id="Skills" className="skills">
       <h1>Skills</h1>
       <Content>
-        <ListContainer>
+        <ListContainer className="listContainer">
           {skills.map((item) => {
             return (
-              <List key={item.category}>
+              <List key={item.category} className="list">
                 {item.data.map((item) => {
                   return (
                     <li key={item.name}>

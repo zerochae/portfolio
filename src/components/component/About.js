@@ -9,6 +9,48 @@ import Mail from "@/img/Mail.png";
 const Container = styled.div`
   padding: 70px 15px;
   text-align: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .aboutContainer {
+      flex-direction: column;
+    }
+    .profile {
+      width: 60%;
+    }
+    .TextContainer {
+      width: 90%;
+    }
+    .ItemContainer {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .aboutContainer {
+      flex-direction: column;
+    }
+    .profile {
+      width: 100%;
+    }
+    .TextContainer {
+      width: 100%;
+    }
+    .ItemContainer {
+      justify-content: space-around;
+      li {
+        a {
+          border-radius: 14px;
+          width: 110px;
+          height: 60px;
+          margin: 0;
+          span {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+
 `;
 
 const Content = styled.div`
@@ -19,7 +61,7 @@ const Content = styled.div`
   align-items: center;
 `;
 const ImgBox = styled.div`
-  width: 30%;
+  width: 40vw;
   border-radius: 20px;
   img {
     border-radius: 20px;
@@ -51,11 +93,14 @@ const ItemContainer = styled.ul`
   display: flex;
   margin: 20px 0;
   align-items: center;
+  text-align: -webkit-center;
+  justify-content: space-between;
 `;
 
 const Item = styled.li`
+  width: 100%;
   a {
-    width: 150px;
+    width: 130px;
     height: 60px;
     display: inline-block;
     border-radius: 20px;
@@ -63,7 +108,6 @@ const Item = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
 
     :hover {
       box-shadow: inset 6px 6px 12px #c5c5c5, inset -6px -6px 12px #fbfbfb;
@@ -79,6 +123,9 @@ const Item = styled.li`
 const ItemTitle = styled.span`
   font-size: 1.1rem;
   margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const link = [
@@ -121,11 +168,11 @@ export default function About() {
   return (
     <Container id="About" className="about">
       <h1>About Me</h1>
-      <Content>
+      <Content className="aboutContainer">
         <ImgBox className="profile">
           <img src={profile} alt="profile" />
         </ImgBox>
-        <TextContainer>
+        <TextContainer className="TextContainer">
           <Text>
             <h3>
               독창성의 장점은 참신이 아니라 성실이다. 믿는 사람은 독창적인
@@ -147,7 +194,7 @@ export default function About() {
               이런 저의 성장가능성을 이끌어줄 회사를 찾고 있습니다.
             </p>
           </Text>
-          <ItemContainer>
+          <ItemContainer className="ItemContainer">
             {link.map((item) => {
               return (
                 <Item key={item.name}>
@@ -159,7 +206,7 @@ export default function About() {
               );
             })}
           </ItemContainer>
-          <ItemContainer>
+          <ItemContainer className="ItemContainer">
             {contact.map((item) => {
               return (
                 <Item key={item.name}>

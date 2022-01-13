@@ -131,30 +131,29 @@ table {
 * {
   box-sizing: border-box;
   font-family: "seoulhangang";
-	font-size:10px; 
+  font-size: 10px;
 }
 
-body{
+body {
   background-color: #f2f2f2;
 }
 
-h1{
+h1 {
   font-size: 3rem;
   display: block;
 }
 
-h2{
+h2 {
   font-size: 2rem;
 }
 
-h3{
+h3 {
   font-size: 1.5rem;
 }
 
-h4{
+h4 {
   font-size: 1.2rem;
 }
-
 
 a {
   text-decoration: none;
@@ -172,4 +171,23 @@ a:focus {
 a:hover,
 a:active {
   text-decoration: none;
+}
+
+@media all and (max-width: 767px) {
+  h1 {
+    font-size: 2.5rem;
+    display: block;
+  }
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
 }
