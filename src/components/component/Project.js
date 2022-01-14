@@ -63,56 +63,17 @@ const Container = styled.div`
       width: 80vw;
     }
 
+    .btn{
+      font-size: 0.7rem;
+    }
+
+    ul{
+      li{
+        font-size: 0.6rem;
+      }
+    }
+
   }
-
-  /* @media (min-width: 768px) and (max-width: 1023px) {
-
-    .cardContainer {
-      width: 180vw;
-    }
-
-    .card{
-    }
-
-    .innerContainer {
-      width: 60vw;
-    }
-
-    .flip {
-      width:60vw;
-      height: 70%;
-    }
-
-    .cardContainer {
-      min-width: 100%;
-      transform: ${({ step }) => {
-        return `translateX(${step * 60 * -1}vw)`;
-      }};
-    }
-
-    .btn {
-      width: 80px;
-      height: 50px;
-      font-size: 0.8rem;
-    }
-  }
-
-  @media all and (max-width: 767px) {
-    padding: 0;
-
-    .card {
-      min-width: 100%;
-      transform: ${({ step }) => {
-        return `translateX(${step * 100 * -1}vw)`;
-      }};
-    }
-    .cardContainer {
-      width: 150vw;
-    }
-    .flip {
-      width: 100%;
-    }
-  } */
 `;
 
 const Content = styled.div`
@@ -139,7 +100,7 @@ const Button = styled.button`
   height: 50px;
   cursor: pointer;
   z-index: 1;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 
   :hover {
     box-shadow: inset 6px 6px 12px #b6b6b6, inset -6px -6px 12px #ffffff;
@@ -197,18 +158,16 @@ const BackContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
 `;
 
 const SkillContainer = styled.ul`
-  height: 15%;
 `;
 
 const Skill = styled.li`
   margin: 10px 0;
   display: inline-block;
   border-radius: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
   padding: 10px;
   color: white;
   background-color: #4caf5f;
@@ -216,25 +175,22 @@ const Skill = styled.li`
 `;
 
 const MyWorkContainer = styled.ul`
-  height: 50%;
 `;
 
 const MyWork = styled.li`
-  margin-top: 10px;
-  display: inline-block;
+  display: block;
   padding: 10px;
   font-size: 1rem;
 `;
 
 const RoleContainer = styled.ul`
-  height: 15%;
 `;
 
 const Role = styled.li`
   margin: 10px 0;
   display: inline-block;
   border-radius: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
   padding: 10px;
   color: white;
   background-color: #f06b0d;
@@ -260,9 +216,13 @@ const project = [
     description:
       "Project Management Software Kanboo입니다. Front는 Vue.js Back은 Spring, JPA를 이용하였습니다.",
     myWork: [
-      "Login Page(Terminal Component)를 디자인하고, 관련된 기능들을 구현하였습니다.",
-      "Kanban Board Component를 디자인하고 관련된 기능들을 구현하고, 서버와 통신해 CRUD를 구현하였습니다.",
-      "Gantt Chart Component를 디자인하고 관련된 기능들을 구현하고, 서버와 통신해 CRUD를 구현하였습니다.",
+      "Login Page(Terminal Component) 디자인",
+      "로그인, 회원가입, 비밀번호 찾기, 비밀번호 암호화 구현",
+      "Kanban Board Component 디자인",
+      "Kanban Item CRUD 구현",
+      "Gantt Chart Component 디자인",
+      "Gantt Chart CRUD 구현",
+      "Gantt Chart Graph 라이브러리 없이 구현",
     ],
     role: ["design", "front", "back"],
   },
@@ -274,7 +234,7 @@ const project = [
     img: mood,
     skills: ["vue.js", "node.js", "mysql"],
     description: " Music Player App 입니다.",
-    myWork: ["node.js를 이용해 서버와 통신하였습니다."],
+    myWork: ["Data를 보내줄 node.js server와 front단을 연결함","node.js server는 heroku에서 호스팅"],
     role: ["1인개발"],
   },
   {
@@ -285,7 +245,7 @@ const project = [
     img: portfolio,
     skills: ["react"],
     description: "react를 이용한 portfolio Page입니다.",
-    myWork: ["라이브러리 없이 모든 애니메이션들을 구현했습니다."],
+    myWork: ["라이브러리 없이 Animation 구현", "반응형 디자인"],
     role: ["1인개발"],
   },
 ];

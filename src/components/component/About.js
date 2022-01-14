@@ -31,6 +31,7 @@ const Container = styled.div`
     }
     .profile {
       width: 100%;
+      min-width: 310px;
     }
     .TextContainer {
       width: 100%;
@@ -39,12 +40,12 @@ const Container = styled.div`
       justify-content: space-around;
       li {
         a {
-          border-radius: 14px;
-          width: 110px;
-          height: 60px;
+          border-radius: 12px;
+          width: 100px;
+          height: 50px;
           margin: 0;
           span {
-            font-size: 0.85rem;
+            font-size: 0.7rem;
           }
         }
       }
